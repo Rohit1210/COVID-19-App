@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid-19 Stats</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="js/angular.min.js"></script>
+    <script src="js/myscript.js"></script>
+</head>
+<body ng-app="MyApp" ng-controller="MyCtrl">
+
+    <div class="container mt-2">
+        <div class="jumbotron py-3">
+            <H1 class="text-center">{{title}}</H1>
+            <h2 class="text-center">{{sub_heading}}</h2>
+            <p class="pt-3">COVID-19 affects different people in different ways. Most infected people will develop mild to moderate illness 
+                and recover without hospitalization.The virus that causes COVID-19 is mainly transmitted through droplets generated when an 
+                infected person coughs, sneezes, or exhales. These droplets are too heavy to hang in the air, and quickly fall on floors or surfaces.
+                You can be infected by breathing in the virus if you are within close proximity of someone who has COVID-19, or by touching a 
+                contaminated surface and then your eyes, nose or mouth.
+
+            </p>
+            <!-- <button ng-click="changeValue()">btn</button> -->
+            <!-- print all data -->
+
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <div class="card bg-warning text-white">
+                        <div class="card-body">
+                            <h3>Confirmed Cases</h3>
+                            <h3>{{all_data.confirmed.value}}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-success text-white">
+                        <div class="card-body">
+                            <h3>Recorved Cases</h3>
+                            <h3>{{all_data.recovered.value}}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-danger text-white">
+                        <div class="card-body">
+                            <h3>Death Cases</h3>
+                            <h3>{{all_data.deaths.value}}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- end all data -->
+
+            <input type="text" class="form-control mt-4" placeholder="Enter Country" ng-model="c" ng-change="get_c_data()">
+              
+            <!-- c data -->
+            <div class="container-fluid " ng-if='c_data' >
+                <h2 class="text-center mt-4 text-uppercase">{{c}} STATUS</h2>
+                <div class="row text-center mt-4">
+                    <div class="col-md-4">
+                        <div class="card bg-warning text-white">
+                            <div class="card-body">
+                                <h3>Confirmed Cases</h3>
+                                <h3>{{c_data.confirmed.value}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-success text-white">
+                            <div class="card-body">
+                                <h3>Recorved Cases</h3>
+                                <h3>{{c_data.recovered.value}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-danger text-white">
+                            <div class="card-body">
+                                <h3>Death Cases</h3>
+                                <h3>{{c_data.deaths.value}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- end c data -->
+
+        </div>
+    </div>
+
+</body>
+</html>
